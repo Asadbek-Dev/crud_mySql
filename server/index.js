@@ -2,12 +2,12 @@ const express = require("express");
 const app = express();
 
 const mysql=require('mysql');
-const db=mysql.createPool({
-    host:'localhost',
-    user:'root',
-    password:'test1234',
-    connectionLimit:10
-})
+// const db=mysql.createPool({
+//     host:'localhost',
+//     user:'root',
+//     password:'test1234',
+//     connectionLimit:10
+// })
 
 // app.get("/", (req, res) => {
 //     const sqlInsert=`INSERT INTO cruddatabase.movie_reviews (movieName, movieReview) VALUES ('Company Inc', 'Highway 37')`;
