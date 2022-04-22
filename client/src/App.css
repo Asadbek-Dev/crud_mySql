@@ -4,50 +4,89 @@
   justify-content: center;
 }
 
-.information {
-  display: flex;
-  flex-direction: column;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+*:not(i) {
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background-color: #659dbd;
+}
+.container{
+  background-color: #ffffff;
+  width: 90vmin;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  padding: 80px 50px;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(38,33,61,0.2);
+}
+.search-box{
   width: 100%;
-  justify-content: center;
-  align-items: center;
-
-}
-input {
-  width: 300px;
-  height: 50px;
-  font-size: 20px;
-  padding-left: 10px;
-  margin: 5px;
-
-}
-
-button {
-  width: 320px;
-  height: 50px;
-  margin-top: 15px;
-} 
-
-button:hover {
-  cursor: pointer;
-}
-
-.employees {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
+  justify-content: space-between;
+
 }
 
-.employee {
-  width: 700px;
-  height: auto;
-  border: 1px solid black;
-  margin: 10px;
+.search-box input{
+  padding: 5px;
+  width: 70%;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #659dbd;
+  font-size: 16px;
+}
+.search-box button{
+  padding: 15px 0;
+  width: 25%;
+  background-color: #659dbd;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.result{
+  position: relative;
+}
+.result h3{
+  font-size: 30px;
+  color: #1f194c;
+}
+
+.result .word{
   display: flex;
-  padding: 10px;
-  font-family: 'Courier New', Courier, monospace;
+  justify-content: space-between;
+  margin-top: 80px;
 }
+.result button{
+  background-color: transparent;
+  color: #659dbd;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+.result .details{
+  display: flex;
+  gap: 10px;
+  color: #b3b6d4;
+  margin: 5px 0 20px 0;
+  font-size: 14px;
+  margin: 10px 0;
 
-.employee h3 {
-  margin: 20px;
+}
+.word-meaning{
+  color: #575a7b;
+}
+.word-example{
+  color: #575a7b;
+  font-style: italic;
+  border-left: 5px solid #659dbd;
+  padding-left: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
