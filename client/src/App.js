@@ -38,6 +38,7 @@ function App() {
 
   const getEmployees = () => {
     Axios.get("http://localhost:3001/employees").then((response) => {
+      console.log(response);
       setEmployeeList(response.data);
     });
   };
@@ -75,7 +76,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="information">
+      {/* <div className="information">
         <label>Name:</label>
         <input
           type="text"
@@ -154,7 +155,18 @@ function App() {
             </div>
           );
         })}
-      </div>
+      </div> */}
+      <div class="container">
+        <div className="search-box">
+            <input type="text" placeholder="Type the word here..." id="inp-word"/>
+            <button  id="search-btn">Search</button>
+        </div>
+        <div className="result" id="result">
+            <div className="word">
+                <h3 id="searchedText"></h3>
+            </div>
+        </div>
+    </div>
     </div>
   );
 }
