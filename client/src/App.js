@@ -23,16 +23,16 @@ function App() {
       wage: wage,
     }).then(() => {
       console.log("success");
-      // setEmployeeList([
-      //   ...employeeList,
-      //   {
-      //     name: name,
-      //     age: age,
-      //     country: country,
-      //     position: position,
-      //     wage: wage,
-      //   },
-      // ]);
+      setEmployeeList([
+        ...employeeList,
+        {
+          name: name,
+          age: age,
+          country: country,
+          position: position,
+          wage: wage,
+        },
+      ]);
     });
   };
 
