@@ -10,11 +10,20 @@ const db = mysql.createConnection({
   user: "root",
   host: "localhost",
   password: "test1234",
-  database: "sql_hr",
 });
 
-app.get("/search", (req, res) => {
-  db.query("SELECT * FROM employees", (err, result) => {
+app.get("/Uzbek", (req, res) => {
+  db.query("SELECT * FROM sql_hr.employees", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.get("/English", (req, res) => {
+  db.query("SELECT * FROM sql_hr.offices", (err, result) => {
     if (err) {
       console.log(err);
     } else {
