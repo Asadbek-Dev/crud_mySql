@@ -27,27 +27,31 @@ function App() {
     if (option.value == "Uzbek") {
       Axios.get("http://localhost:3001/Uzbek").then((response) => {
         setEmployeeList(response.data);
+        console.log(response.data);
       });
     } else if (option.value == "English") {
       Axios.get("http://localhost:3001/English").then((response) => {
         setEmployeeList(response.data);
+        console.log(response.data);
       });
     } else {
       setDefinition("Not Found page");
+      console.log("Not Found page");
     }
   };
 
   return (
     <div className="App">
-      <Select
+      
+      {definition}{" "}
+      <div className="container">
+        <Select
         className="select"
         onChange={setOption}
         options={options}
         isClearable
         isSearchable
       />{" "}
-      {definition}{" "}
-      <div className="container">
         <form className="search-box">
           <input
             type="text"
@@ -61,7 +65,7 @@ function App() {
             Search{" "}
           </button>{" "}
         </form>{" "}
-        {option.value == "Uzbek"
+        {/* {option.value == "Uzbek"
           ? employeeList
               .filter((val) => {
                 if (text == "") {
@@ -101,7 +105,7 @@ function App() {
                     <div className="details"> {val.address} </div>{" "}
                   </div>
                 );
-              })}
+              })} */}
       </div>{" "}
     </div>
   );
