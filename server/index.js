@@ -13,7 +13,7 @@ const db = mysql.createConnection({
 });
 
 app.get("/Uzbek", (req, res) => {
-  db.query("SELECT * FROM sql_hr.employees", (err, result) => {
+  db.query("SELECT * FROM definition_word.data", (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -22,15 +22,6 @@ app.get("/Uzbek", (req, res) => {
   });
 });
 
-app.get("/English", (req, res) => {
-  db.query("SELECT * FROM sql_hr.offices", (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
-});
 
 app.listen(3001, () => {
   console.log("Yey, your server is running on port 3001");

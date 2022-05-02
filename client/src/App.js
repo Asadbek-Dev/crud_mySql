@@ -29,11 +29,6 @@ function App() {
         setEmployeeList(response.data);
         console.log(response.data);
       });
-    } else if (option.value == "English") {
-      Axios.get("http://localhost:3001/English").then((response) => {
-        setEmployeeList(response.data);
-        console.log(response.data);
-      });
     } else {
       setDefinition("Not Found page");
       console.log("Not Found page");
