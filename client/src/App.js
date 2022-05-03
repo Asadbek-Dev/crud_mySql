@@ -1,107 +1,69 @@
 import "./App.css";
-import React,{ useState } from "react";
+import React,{ useEffect, useState} from "react";
 import Axios from "axios";
 import Select from "react-select";
 
 function App() {
-  const [text, setText] = useState("");
-  const [definition, setDefinition] = useState("");
-  const [option, setOption] = useState("");
 
-  console.log(option);
+  useEffect(() => {
+    
+    Axios.get("http://localhost:3001/Uzbek").then((response) => {
+      setWords(response.data);
+    });
+  }, []);
+  const [filteredData, setFilteredData] = useState([]);
+  const [words, setWords] = useState([]);
 
-  const [employeeList, setEmployeeList] = useState([]);
-  const options = [
-    {
-      value: "English",
-      label: "English",
-    },
-    {
-      value: "Uzbek",
-      label: "Uzbek",
-    },
-  ];
+  const handleFilter=(e)=>{
+    const searchWord=e.target.value;
+    const newFilter=words.filter((value) =>{
+      return value.word_eng.toLowerCase().includes(searchWord.toLowerCase());
+    });
+    console.log(newFilter);
+    setFilteredData(newFilter);
+  }
 
-  const getEmployees = (e) => {
-    e.preventDefault();
-    if (option.value == "Uzbek") {
-      Axios.get("http://localhost:3001/Uzbek").then((response) => {
-        setEmployeeList(response.data);
-        console.log(response.data);
-      });
-    } else {
-      setDefinition("Not Found page");
-      console.log("Not Found page");
-    }
-  };
+
+  // const options = [
+  //   {
+  //     value: "English",
+  //     label: "English",
+  //   },
+  //   {
+  //     value: "Uzbek",
+  //     label: "Uzbek",
+  //   },
+  // ];
 
   return (
     <div className="App">
-      
-      {definition}{" "}
       <div className="container">
-        <Select
+        {/* <Select
         className="select"
         onChange={setOption}
         options={options}
         isClearable
         isSearchable
-      />{" "}
+      /> */}
         <form className="search-box">
           <input
             type="text"
-            onClick={(e) => {
-              setText(e.target.value);
-            }}
+            onChange={handleFilter}
             placeholder="Type the word here..."
             id="inp-word"
           />
-          <button id="search-btn" onClick={getEmployees}>
-            Search{" "}
-          </button>{" "}
-        </form>{" "}
-        {/* {option.value == "Uzbek"
-          ? employeeList
-              .filter((val) => {
-                if (text == "") {
-                  return val;
-                } else if (
-                  val.first_name.toLowerCase().includes(text.toLowerCase())
-                ) {
-                  return val;
-                }
-              })
-              .map((val, key) => {
-                return (
-                  <div className="result" id="result" key={key}>
-                    <div className="word">
-                      <h3 id="searchedText"> {val.first_name} </h3>{" "}
-                    </div>{" "}
-                    <div className="details"> {val.job_title} </div>{" "}
-                  </div>
-                );
-              })
-          : employeeList
-              .filter((val) => {
-                if (text == "") {
-                  return val;
-                } else if (
-                  val.city.toLowerCase().includes(text.toLowerCase())
-                ) {
-                  return val;
-                }
-              })
-              .map((val, key) => {
-                return (
-                  <div className="result" id="result" key={key}>
-                    <div className="word">
-                      <h3 id="searchedText"> {val.city} </h3>{" "}
-                    </div>{" "}
-                    <div className="details"> {val.address} </div>{" "}
-                  </div>
-                );
-              })} */}
-      </div>{" "}
+          <button id="search-btn">
+            Search
+          </button>
+        </form>
+        <div className="dataResult">
+          {filteredData.slice(0,15).map((value,key)=>{
+         return <div className="dataName" key={key}>
+                  <p>{value.word_eng}</p>
+                </div>
+       })}
+        </div>
+      </div>
     </div>
   );
 }

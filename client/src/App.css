@@ -17,9 +17,9 @@
   font-family: "Poppins", sans-serif;
 }
 body{
-  background-color: #659dbd;
+  background-color: #ccc;
 }
-.container{
+/* .container{
   background-color: #ffffff;
   width: 90vmin;
   position: absolute;
@@ -29,7 +29,7 @@ body{
   padding: 80px 50px;
   border-radius: 10px;
   box-shadow: 0 20px 40px rgba(38,33,61,0.2);
-}
+} */
 .search-box{
   width: 100%;
   display: flex;
@@ -54,7 +54,7 @@ body{
   color: #ffffff;
   border-radius: 5px;
 }
-.result{
+/* .result{
   position: relative;
 }
 .result h3{
@@ -93,4 +93,27 @@ body{
   padding-left: 20px;
   margin-top: 30px;
   margin-bottom: 20px;
+} */
+
+.dataResult{
+margin-top: 5px;
+width: 308;
+height: 280px;
+background-color: white;
+box-shadow: Drgba(0, 0, 0, 0.35) 0px 5px 15px;
+overflow: hidden;
+overflow-y: auto;
+}
+.dataResult::-webkit-scrollbar {
+  display: none;
+  }
+.dataResult .datalten {
+  width: 100%;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+.dataItem p{
+margin-left: 10px;
 }
