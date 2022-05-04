@@ -72,6 +72,7 @@ function SearchBar({ placeholder}) {
         </div>
         <Select className="select" options={options} defaultValue={{ value: 'eng', label: 'eng' }} onChange={value =>handleChange(value)} />
       </div>
+      
       {filteredData.length != 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
@@ -83,13 +84,14 @@ function SearchBar({ placeholder}) {
           })}
         </div>
       )}
-      {option==='eng'?<div className="Result">
+      
+      {/* {option==='eng'?<div className="result">
           <h2 className="result_word">{selected.word_eng}</h2>
           <p className="result_definition">{selected.definition_eng}</p>
       </div>:<div className="Result">
           <h2 className="result_word">{selected.word_uz}</h2>
           <p className="result_definition">{selected.definition_uz}</p>
-      </div>}
+      </div>} */}
     </div>
   );
 }
