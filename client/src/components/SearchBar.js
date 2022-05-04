@@ -4,6 +4,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 import Axios from "axios";
 import Select from 'react-select';
+import Result from "./Result";
 
 function SearchBar({ placeholder}) {
     const [filteredData, setFilteredData] = useState([]);
@@ -23,7 +24,6 @@ function SearchBar({ placeholder}) {
         { value: 'eng', label: 'eng' },
         { value: 'uz', label: 'uz' },
       ]
-      console.log(option);
     
     const handleFilter = (event) => {
     const searchWord = event.target.value;
@@ -84,14 +84,7 @@ function SearchBar({ placeholder}) {
           })}
         </div>
       )}
-      
-      {/* {option==='eng'?<div className="result">
-          <h2 className="result_word">{selected.word_eng}</h2>
-          <p className="result_definition">{selected.definition_eng}</p>
-      </div>:<div className="Result">
-          <h2 className="result_word">{selected.word_uz}</h2>
-          <p className="result_definition">{selected.definition_uz}</p>
-      </div>} */}
+      <Result selected={selected} option={option}/>
     </div>
   );
 }
