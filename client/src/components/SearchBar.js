@@ -84,7 +84,8 @@ function SearchBar({ placeholder}) {
           })}
         </div>
       )}
-      <Result selected={selected} option={option}/>
+      {wordEntered.length!=0 &&  <Result selected={selected} option={option}/>}
+     
     </div>
   );
 }
